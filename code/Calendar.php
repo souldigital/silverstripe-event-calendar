@@ -824,6 +824,14 @@
 			return $list;
 		}
 
+
+		public function EventsGroupedByDay(){
+			$all_times = $this->Events();
+			$grouped = new GroupedList($all_times);
+			$grouped = $grouped->GroupedBy("getTokenEventStartEnd", "Times");
+			return $grouped;
+		}
+
 		public function DateHeader() {
 			switch($this->view) {
 				case "day":

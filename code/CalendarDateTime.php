@@ -198,7 +198,11 @@ class CalendarDateTime extends DataObject {
 		}
 		return $dates;
 	}
-	
+
+	public function getTokenEventStartEnd(){
+		return $this->EventID."_".$this->StartDate."_".$this->EndDate;
+	}
+
 	public function canCreate($member = null) {
 		return Permission::check("CMS_ACCESS_CMSMain");
 	}

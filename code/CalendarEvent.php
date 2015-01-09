@@ -131,6 +131,12 @@ class CalendarEvent extends Page {
 		return $this->Parent()->CalendarWidget();
 	}
 
+	public function getGroupedDateTimesByDay(){
+		$all_times = $this->DateTimes();
+		$grouped = new GroupedList($all_times);
+		$grouped->GroupedBy("getTokenEventStartEnd", "Times");
+		return $grouped;
+	}
 }
 
 class CalendarEvent_Controller extends Page_Controller {
